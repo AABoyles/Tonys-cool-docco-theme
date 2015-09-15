@@ -2,3 +2,5 @@
 /example/
 /src/
 /test/
+/.gitignore
+/.travis.yml
