@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '0.12'
+script:
+- npm run build
+deploy:
+  provider: npm
+  email: pghalliday@gmail.com
+  on:
+    tags: true
+  api_key:
+    secure: bvU9AzBJ1XNlsp7/wIOwKB4YuK2bbTCTiNAcVl3MizHIP9u+681fzxwuResNeVwA63+HxMp4bBTBxV5nYlYP98blp05aOAVL1rh0pnpQ70Lx443e3C2o017OHRVpbZVw3fg7FvoNUvX3bIYyHwiJDLjmGjVYaIh0L3g3RlqvJ2YdomEaWAYlWrbjrQLihxegBWNP0OYAwop2eXHQPI7Ova/MbwhqGihnImgc8DzPpBEF9l7GzPxtZDRVdQb+IAFZa74QHqImSH8aDWJIB28/PYgBd1IH4049YLRhuW507LGUr2nrlyrtaYhqbBqqc99aoko2f0R1iyAicuA2Q5Sfjo4JNeWip+6t/3QpUgU+1BOu//T5Xcxs1VV+SGT5/ASnNlZ6U8mKYorb2gqujBwDVNvWYd3V41bjCXm0SjLd802NwGHdX5p8ZdraRzRkeLKw5/iCIJ5AVB+oMSRLyN/HiQ1Ym1m09r4V//UCsdJRiI1Ouv+R7+n7N6peVzC6ei2/xk6NUEmFm070gqnEaw1npEVOE5eQW0NWHA3gJTLQB1uHzL00H8rGgIzFrv4zmyMSiimFgeYxIP6yIpwqOT6vllrBmHsCbLj5A8KZUJ6QWRqwtA+wnnnmvWZl405wI8h6rVAopNKheXhEyeB+/jfZjTo8dhGBmFjl7SKJf9l5D+s=
