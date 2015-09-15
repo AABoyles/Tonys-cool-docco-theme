@@ -53,12 +53,28 @@
       <% for (var i=0, l=sections.length; i<l; i++) { %>
         <% var section=sections[i]; %>
         <%
-          /* Skip over sections that have @private in the docstring. */
-          if (section.docsHtml.match(/^<p>@no-doc/m)) continue;
+          /* Skip over sections that have @docco:skip line in the docstring */
+          if (section.docsText.match(/^\s*@docco:skip\s*$/m)) continue;
+          /* Unindent code sections that have a @docco:unindent:N line in the the docstring */
+          var unindent = 0;
+          if ((match = section.docsText.match(/^\s*@docco:unindent:(\d+)\s$/m))) {
+            unindent = match[1];
+            section.docsHtml = section.docsHtml.replace(/<p>\s*@docco:unindent:\d+\s*<\/p>/m, '');
+          }
         %>
         <%= section.docsHtml %>
         <% if (!(/^\s*$/).test(section.codeText)) { %>
-          <%= section.codeHtml %>
+          <%
+            var unindentHtml = function(html, spaces) {
+              var html = html.replace(new RegExp('(<pre>)([ ]{1,' + spaces + '})', 'm'), function(_, p1) {
+                return p1;
+              });
+              return html.replace(new RegExp('^([ ]{1,' + spaces + '})', 'mg'), '');
+            };
+            var codeHtml = section.codeHtml;
+            if (unindent) codeHtml = unindentHtml(codeHtml, unindent);
+          %>
+          <%= codeHtml %>
         <% } %>
       <% } %>
     </div>

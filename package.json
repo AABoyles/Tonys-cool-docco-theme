@@ -12,7 +12,9 @@
     "minify": "cleancss -o dist/docco.min.css dist/docco.css",
     "precopy": "npm run -s minify",
     "copy": "cp -r src/public src/docco.jst dist/ ",
-    "build": "npm run -s copy"
+    "build": "npm run -s copy",
+    "pretest": "npm run -s build",
+    "test": "docco -t dist/docco.jst -c dist/docco.css -o test/ example/index.js && cp -r dist/public test/"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,7 @@
   "homepage": "https://github.com/libertyglobal/liberty-global-docco-theme",
   "devDependencies": {
     "clean-css": "^3.4.3",
+    "docco": "^0.7.0",
     "highlight.js": "^8.8.0",
     "less": "^2.5.1",
     "liberty-global-bootstrap-theme": "git+https://github.com/LibertyGlobal/liberty-global-bootstrap-theme.git"
