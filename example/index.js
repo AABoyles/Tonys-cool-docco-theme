@@ -9,6 +9,7 @@ var boo = function(apple) {
 // @docco:skip
 function skipme() {
   
+  // mmm, bananas
   // @docco:unindent:2
   var banana;
   banana = boo;
@@ -17,6 +18,8 @@ function skipme() {
     boo(hello);
   }
 
+  // @docco:unindent:2
+  // hello
   thing(banana);
 
 // @docco:skip
