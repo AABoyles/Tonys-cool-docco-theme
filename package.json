@@ -1,0 +1,37 @@
+{
+  "name": "liberty-global-docco-theme",
+  "version": "1.0.0",
+  "description": "Docco layout and css, etc for use with docco generated documentation",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "predist": "npm run -s clean",
+    "dist": "mkdir -p dist",
+    "preless": "npm run -s dist",
+    "less": "lessc src/styles/docco.less | cat - node_modules/highlight.js/styles/github.css node_modules/liberty-global-bootstrap-theme/dist/liberty-global-bootstrap-theme.min.css > dist/docco.css",
+    "preminify": "npm run -s less",
+    "minify": "cleancss -o dist/docco.min.css dist/docco.css",
+    "precopy": "npm run -s minify",
+    "copy": "cp -r src/public src/docco.jst dist/ ",
+    "build": "npm run -s copy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/libertyglobal/liberty-global-docco-theme.git"
+  },
+  "keywords": [
+    "docco",
+    "Liberty Global"
+  ],
+  "author": "Peter Halliday <pghalliday@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/libertyglobal/liberty-global-docco-theme/issues"
+  },
+  "homepage": "https://github.com/libertyglobal/liberty-global-docco-theme",
+  "devDependencies": {
+    "clean-css": "^3.4.3",
+    "highlight.js": "^8.8.0",
+    "less": "^2.5.1",
+    "liberty-global-bootstrap-theme": "git+https://github.com/LibertyGlobal/liberty-global-bootstrap-theme.git"
+  }
+}
