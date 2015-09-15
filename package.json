@@ -1,6 +1,6 @@
 {
   "name": "liberty-global-docco-theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Docco layout and css, etc for use with docco generated documentation",
   "scripts": {
     "clean": "rm -rf dist",
