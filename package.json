@@ -1,40 +1,33 @@
 {
-  "name": "liberty-global-docco-theme",
-  "version": "1.0.1",
+  "name": "tonys-cool-docco-theme",
+  "version": "0.0.1",
   "description": "Docco layout and css, etc for use with docco generated documentation",
   "scripts": {
-    "clean": "rm -rf dist",
-    "predist": "npm run -s clean",
-    "dist": "mkdir -p dist",
-    "preless": "npm run -s dist",
-    "less": "lessc src/styles/docco.less | cat - node_modules/highlight.js/styles/github.css node_modules/liberty-global-bootstrap-theme/dist/liberty-global-bootstrap-theme.min.css > dist/docco.css",
-    "preminify": "npm run -s less",
-    "minify": "cleancss -o dist/docco.min.css dist/docco.css",
-    "precopy": "npm run -s minify",
-    "copy": "cp -r src/public src/docco.jst dist/ ",
-    "build": "npm run -s copy",
-    "pretest": "npm run -s build",
-    "test": "docco -t dist/docco.jst -c dist/docco.css -o test/ example/index.js && cp -r dist/public test/"
+    "clean": "rm -rf dist/*",
+    "build": "lessc src/styles/docco.less | cat - node_modules/highlight.js/styles/github.css > dist/docco.css && cp src/docco.jst dist/",
+    "test": "docco -t dist/docco.jst -c dist/docco.css -o test/ example/index.js",
+    "serve": "http-server test/",
+    "all": "npm run clean && npm run build && npm run test && npm run serve"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/libertyglobal/liberty-global-docco-theme.git"
+    "url": "https://github.com/AABoyles/Tonys-cool-docco-theme.git"
   },
   "keywords": [
     "docco",
-    "Liberty Global"
+    "theme"
   ],
-  "author": "Peter Halliday <pghalliday@gmail.com>",
+  "author": "Tony Boyles <aaboyles@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/libertyglobal/liberty-global-docco-theme/issues"
+    "url": "https://github.com/AABoyles/Tonys-cool-docco-theme/issues"
   },
-  "homepage": "https://github.com/libertyglobal/liberty-global-docco-theme",
+  "homepage": "https://github.com/AABoyles/Tonys-cool-docco-theme",
   "devDependencies": {
     "clean-css": "^3.4.3",
     "docco": "^0.7.0",
     "highlight.js": "^8.8.0",
     "less": "^2.5.1",
-    "liberty-global-bootstrap-theme": "git+https://github.com/LibertyGlobal/liberty-global-bootstrap-theme.git"
+    "http-server": "^0.10.0"
   }
 }

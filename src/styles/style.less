@@ -8,10 +8,18 @@ body {
   -ms-font-smoothing: antialiased;
 }
 
+#toggleAllCode {
+  margin-top: 19px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 15px;
-  font-family: GestaLight;
+  font-family: 'Exo 2', sans-serif;
+}
+
+h2, h3, h4, h5, h6 {
+  padding-top: 80px;
 }
 
 label {
@@ -34,4 +42,19 @@ main {
       margin-bottom: 15px;
     }
   }
+}
+
+#sectionLinksNav{
+  overflow-y: scroll;
+  height: calc(100% - 80px);
+  min-height: 400px;
+}
+
+.nav>li>a{
+  padding: 0;
+  font-size: 11px;
+}
+
+li.active {
+  background-color: #ccc;
 }
