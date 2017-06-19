@@ -26,12 +26,26 @@
       <div class="col-md-3" role="complementary">
         <nav id="sectionLinksNav" class="hidden-print hidden-sm hidden-xs affix">
           <ul class="nav">
+            <% var currentDepth = 7; %>
+            <% var thunk = false; %>
             <% for(var i = 0; i < sections.length; i++){ %>
               <% var header = sections[i].docsHtml.match(/<h(\d).*?>(.*?)<\/h/i) %>
               <% if(header){ %>
-                <li>
-                  <a href="#<%= header[2].toLowerCase().replace(' ', '-') %>"><%= header[2] %></a>
-                </li>
+                <% if(header[1] < currentDepth){ %>
+                  <% if(thunk){ %>
+                    </li></ul>
+                  <% } else { %>
+                  <% thunk = true; %>
+                  <% } %>
+                  <li>
+                    <a href="#<%= header[2].toLowerCase().replace(' ', '-') %>"><%= header[2] %></a>
+                    <ul class="nav">
+                <% } else if(header[1] >= currentDepth){ %>
+                  <li>
+                    <a href="#<%= header[2].toLowerCase().replace(' ', '-') %>"><%= header[2] %></a>
+                  </li>
+                <% } %>
+                <% currentDepth = header[1]; %>
               <% } %>
             <% } %>
           </ul>
@@ -51,12 +65,14 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script>
     $(function(){
-      $('#toggleAllCodeWrapper').append('<button id="toggleAllCode" type="button" class="btn btn-default">Toggle Source</button>')
-      $('#toggleAllCode').click(e => $('pre').slideToggle());
+      $('<button id="toggleAllCode" type="button" class="btn btn-default">Toggle Source</button>').click(e => {
+        $('pre').slideToggle()}
+      ).appendTo($('#toggleAllCodeWrapper'));
       $('pre').hide().before(i => {
         return $('<button type="button" class="btn btn-default btn-xs code-toggle">View Source</button>')
           .click(e => $(e.target).next().slideToggle());
       });
+      $('#sectionLinksNav').css('height', 'calc(100%-'+$('header').height()+')');
       $(document.body).scrollspy({target: '#sectionLinksNav'});
     });
   </script>

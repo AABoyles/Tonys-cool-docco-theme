@@ -36,8 +36,12 @@ h6 {
 label {
   font-weight: normal;
 }
+.col-md-3 {
+  width: 25%;
+}
 main {
   min-height: 400px;
+  background: white;
 }
 main article {
   margin-top: -105px;
@@ -51,16 +55,21 @@ main article p.lead {
   margin-bottom: 15px;
 }
 #sectionLinksNav {
-  overflow-y: scroll;
-  height: calc(20%);
   min-height: 400px;
 }
-.nav > li > a {
+#sectionLinksNav .nav .nav {
+  display: none;
+}
+#sectionLinksNav .nav .active .nav {
+  display: block;
   padding: 0;
   font-size: 11px;
 }
-li.active {
-  background-color: #ccc;
+#sectionLinksNav .nav .active .nav li.active {
+  font-weight: bold;
+}
+.nav > li > a {
+  padding: 1px;
 }
 header {
   position: relative;

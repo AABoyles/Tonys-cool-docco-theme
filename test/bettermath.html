@@ -1,0 +1,2271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bettermath.js</title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <header class="navbar-fixed-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          
+            <h1>bettermath.js</h1>
+          
+        </div>
+        <div id="toggleAllCodeWrapper" class="col-xs-6 text-right"></div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3" role="complementary">
+        <nav id="sectionLinksNav" class="hidden-print hidden-sm hidden-xs affix">
+          <ul class="nav">
+            
+            
+            
+              
+              
+            
+              
+              
+                
+                  
+                  
+                  
+                  <li>
+                    <a href="#helpers">Helpers</a>
+                    <ul class="nav">
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isarray">isArray</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isobject">isObject</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#pluck">pluck</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#range">range</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#repeat">repeat</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#repeateach">repeatEach</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  
+                    </li></ul>
+                  
+                  <li>
+                    <a href="#identifiers">Identifiers</a>
+                    <ul class="nav">
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isundefined">isUndefined</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isnumber">isNumber</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isnan">isNaN</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isinteger">isInteger</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#ispositive">isPositive</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isnegative">isNegative</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isnonnegative">isNonNegative</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isnonpositive">isNonpositive</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#iszero">isZero</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isnonzero">isNonzero</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#issamesign">isSameSign</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isfinite">isFinite</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isinfinite">isInfinite</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#iseven">isEven</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isodd">isOdd</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isprime">isPrime</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#iscomposite">isComposite</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#isperfect">isPerfect</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  
+                    </li></ul>
+                  
+                  <li>
+                    <a href="#randomizers">Randomizers</a>
+                    <ul class="nav">
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#random">random</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#randomboolean">randomBoolean</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#randomdirection">randomDirection</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#randomelement">randomElement</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#randomsample">randomSample</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#shuffle">shuffle</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  
+                    </li></ul>
+                  
+                  <li>
+                    <a href="#mappers">Mappers</a>
+                    <ul class="nav">
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#sign">sign</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#floor">floor</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#ceil">ceil</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#round">round</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#clamp">clamp</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#trunc">trunc</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#abs">abs</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#add">add</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#subtract">subtract</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#multiply">multiply</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#scale01">scale01</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#scale11">scale11</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#scale0100">scale0100</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#scalemm">scalemm</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#divide">divide</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#modulo">modulo</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#pow">pow</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#square">square</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#cube">cube</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#sqrt">sqrt</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#cbrt">cbrt</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#exp">exp</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#expm1">expm1</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#log">log</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#log1p">log1p</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#log10">log10</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#log2">log2</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#logb">logb</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#factorial">factorial</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#copysign">copySign</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#undirectededges">undirectedEdges</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#factors">factors</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#divisors">divisors</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#between">between</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#format">format</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#sort">sort</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#zscore">zScore</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  
+                    </li></ul>
+                  
+                  <li>
+                    <a href="#trigonometry">Trigonometry</a>
+                    <ul class="nav">
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#atan2">atan2</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  
+                    </li></ul>
+                  
+                  <li>
+                    <a href="#reducers">Reducers</a>
+                    <ul class="nav">
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#min">min</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#max">max</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#sum">sum</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#product">product</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#gcd">gcd</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#lcm">lcm</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#mean">mean</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#median">median</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#modes">modes</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#geometricmean">geometricMean</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#midrange">midrange</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#variance">Variance</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#stddeviation">stdDeviation</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#meanabsolutedeviation">meanAbsoluteDeviation</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#hypot">hypot</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#wilson">wilson</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  <li>
+                    <a href="#movingaverage">movingAverage</a>
+                  </li>
+                
+                
+              
+            
+              
+              
+                
+                  
+                    </li></ul>
+                  
+                  <li>
+                    <a href="#fin">Fin</a>
+                    <ul class="nav">
+                
+                
+              
+            
+          </ul>
+        </nav>
+      </div>
+      <div id="main" class="col-md-9" role="main">
+        
+          
+          
+            <div class='highlight'><pre><span class="hljs-pi">'use strict'</span>;
+
+(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+
+  <span class="hljs-keyword">var</span> math = {};
+
+  math.orig = {};
+  <span class="hljs-built_in">Object</span>.getOwnPropertyNames(<span class="hljs-built_in">Math</span>).forEach((key) =&gt; {
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Math</span>[key] == <span class="hljs-string">"function"</span>){
+      <span class="hljs-keyword">return</span> math.orig[key] = <span class="hljs-built_in">Math</span>[key].bind({});
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> math.orig[key] = <span class="hljs-built_in">Math</span>[key];
+    }
+  });</pre></div>
+          
+        
+          <h2 id="helpers">Helpers</h2>
+<p>To start, let’s build out some simple functions which will be important
+building blocks for our later functions.</p>
+
+          
+        
+          <h4 id="isarray">isArray</h4>
+<p>Determines if a given object is an array.</p>
+
+          
+            <div class='highlight'><pre>  math.isArray = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>)</span>{
+    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Array</span>.isArray) <span class="hljs-keyword">return</span> <span class="hljs-built_in">Array</span>.isArray(obj);
+    <span class="hljs-keyword">return</span> obj.constructor === <span class="hljs-built_in">Array</span>;
+  };</pre></div>
+          
+        
+          <h4 id="isobject">isObject</h4>
+<p>Determines if a given object is an object.</p>
+
+          
+            <div class='highlight'><pre>  math.isObject = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>)</span>{
+    <span class="hljs-keyword">return</span> obj === <span class="hljs-built_in">Object</span>(obj);
+  };</pre></div>
+          
+        
+          <h4 id="pluck">pluck</h4>
+<p>Given a non-array, obj, returns obj.</p>
+<p>Given an array of numbers, returns the array of numbers.</p>
+<p>Given an array of objects and a string, ‘key’, returns an array of whatever
+was mapped to key in each element of the array.</p>
+
+          
+            <div class='highlight'><pre>  math.pluck = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">var</span> arr = obj;
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">if</span>(math.isObject(obj[<span class="hljs-number">0</span>])){
+        key = key || <span class="hljs-string">'value'</span>;
+        <span class="hljs-keyword">return</span> arr.map(i =&gt; i[key]);
+      }
+      <span class="hljs-keyword">return</span> arr.slice();
+    }
+    <span class="hljs-keyword">return</span> arr;
+  };</pre></div>
+          
+        
+          <h4 id="range">range</h4>
+<p>Given a number, s, range returns an array of integers between 1 and s
+(inclusive).</p>
+<p>Given two numbers s and t, range returns an array of integers between t and
+s (inclusive).</p>
+<p>Given three numders s, t, and i, range returns an array of integers between
+t and s + i - 1 (inclusive) such that the difference between each element
+in the output array is exactly i.</p>
+
+          
+            <div class='highlight'><pre>  math.range = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">stop, start, step</span>)</span>{
+    start = start || <span class="hljs-number">1</span>;
+    step = step || <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">var</span> length = math.max(math.ceil((stop - start) / step), <span class="hljs-number">0</span>),
+        range = <span class="hljs-built_in">Array</span>(length);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>; idx &lt; length; idx++, start += step){
+      range[idx] = start;
+    }
+    <span class="hljs-keyword">return</span> range;
+  };</pre></div>
+          
+        
+          <h4 id="repeat">repeat</h4>
+<p>Given an array, <code>obj</code>, and a number, <code>times</code>, returns an array which
+repeats <code>obj</code> <code>times</code> times.</p>
+<p><code>math.repeat([1,2,3], 2)</code> &rArr; [1,2,3,1,2,3]</p>
+
+          
+            <div class='highlight'><pre>  math.repeat = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, times</span>)</span>{
+    <span class="hljs-keyword">if</span>(!math.isArray(obj)){ obj = [obj]; }
+    <span class="hljs-keyword">if</span>(!times){ <span class="hljs-keyword">return</span> obj; }
+    <span class="hljs-keyword">var</span> out = [];
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; times; i++){
+      out = out.concat(obj);
+    }
+    <span class="hljs-keyword">return</span> out;
+  };</pre></div>
+          
+        
+          <h4 id="repeateach">repeatEach</h4>
+<p>Given an array, <code>arr</code>, and a number, <code>each</code>, returns an array which
+repeats each value of <code>arr</code> <code>each</code> times.</p>
+<p><code>math.repeatEach([1,2,3], 2)</code> &rArr; [1,1,2,2,3,3]</p>
+
+          
+            <div class='highlight'><pre>  math.repeatEach = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, each</span>)</span>{
+    <span class="hljs-keyword">if</span>(!math.isArray(obj)){ obj = [obj]; }
+    each = each || <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">var</span> out = <span class="hljs-built_in">Array</span>(each * obj.length);
+    obj.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">el, i</span>)</span>{
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> j = <span class="hljs-number">0</span>; j &lt; each; j++){
+        out[i * each + j] = el;
+      }
+    });
+    <span class="hljs-keyword">return</span> out;
+  };</pre></div>
+          
+        
+          <h2 id="identifiers">Identifiers</h2>
+<p>This is a special class of mappers which return boolean variables,
+identifying if a given number meets a defined criterion. They are
+distinguished by the naming scheme is[Type] where [Type] is some
+term that’s meaningful to either Mathematics or Javascript.</p>
+
+          
+        
+          <h4 id="isundefined">isUndefined</h4>
+<p>Determines if a given object is undefined.</p>
+
+          
+            <div class='highlight'><pre>  math.isUndefined = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isUndefined);
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> obj === <span class="hljs-string">'undefined'</span>;
+  };</pre></div>
+          
+        
+          <h4 id="isnumber">isNumber</h4>
+<p>Determines if a given object is a number</p>
+
+          
+            <div class='highlight'><pre>  math.isNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isNumber);
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> obj === <span class="hljs-string">'number'</span>;
+  };</pre></div>
+          
+        
+          <h4 id="isnan">isNaN</h4>
+<p>Determines if a given object is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN">Not a Number</a></p>
+
+          
+            <div class='highlight'><pre>  math.isNaN = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isNaN);
+    }
+    <span class="hljs-keyword">return</span> math.isNumber(obj) &amp;&amp; obj !== +obj;
+  };</pre></div>
+          
+        
+          <h4 id="isinteger">isInteger</h4>
+<p>Determines if a given object is an integer</p>
+
+          
+            <div class='highlight'><pre>  math.isInteger = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isInteger);
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Number</span>.isInteger(obj);
+  };</pre></div>
+          
+        
+          <h4 id="ispositive">isPositive</h4>
+<p>Determines whether a number is positive</p>
+
+          
+            <div class='highlight'><pre>  math.isPositive = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isPositive);
+    }
+    <span class="hljs-keyword">return</span> obj &gt; <span class="hljs-number">0</span>;
+  };</pre></div>
+          
+        
+          <h4 id="isnegative">isNegative</h4>
+<p>Determines whether a number is negative</p>
+
+          
+            <div class='highlight'><pre>  math.isNegative = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isNegative);
+    }
+    <span class="hljs-keyword">return</span> obj &lt; <span class="hljs-number">0</span>;
+  };</pre></div>
+          
+        
+          <h4 id="isnonnegative">isNonNegative</h4>
+<p>Determines whether a number is nonnegative</p>
+
+          
+            <div class='highlight'><pre>  math.isNonNegative = math.isNonnegative = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isNonnegative);
+    }
+    <span class="hljs-keyword">return</span> obj &gt;= <span class="hljs-number">0</span>;
+  };</pre></div>
+          
+        
+          <h4 id="isnonpositive">isNonpositive</h4>
+<p>Determines whether a number is nonpositive</p>
+
+          
+            <div class='highlight'><pre>  math.isNonPositive = math.isNonpositive = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isNonpositive);
+    }
+    <span class="hljs-keyword">return</span> obj &lt;= <span class="hljs-number">0</span>;
+  };</pre></div>
+          
+        
+          <h4 id="iszero">isZero</h4>
+<p>Determines whether a number is Zero</p>
+
+          
+            <div class='highlight'><pre>  math.isZero = math.iszero = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isZero);
+    }
+    <span class="hljs-keyword">return</span> obj === <span class="hljs-number">0</span>;
+  };</pre></div>
+          
+        
+          <h4 id="isnonzero">isNonzero</h4>
+<p>Determines whether a number is nonzero</p>
+
+          
+            <div class='highlight'><pre>  math.isNonZero = math.isNonzero = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isNonzero);
+    }
+    <span class="hljs-keyword">return</span> obj !== <span class="hljs-number">0</span>;
+  };</pre></div>
+          
+        
+          <h4 id="issamesign">isSameSign</h4>
+<p>Compares the signs of two values</p>
+
+          
+            <div class='highlight'><pre>  math.isSameSign = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, b</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> obj.map(i =&gt; math.isSameSign(i, b));
+    }
+    <span class="hljs-keyword">return</span> (obj &gt;= <span class="hljs-number">0</span>) !== (b &lt; <span class="hljs-number">0</span>);
+  };</pre></div>
+          
+        
+          <h4 id="isfinite">isFinite</h4>
+<p>Determines whether a number is finite</p>
+
+          
+            <div class='highlight'><pre>  math.isFinite = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isFinite);
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Number</span>.isFinite(obj);
+  };</pre></div>
+          
+        
+          <h4 id="isinfinite">isInfinite</h4>
+<p>Determines whether a number is positive</p>
+
+          
+            <div class='highlight'><pre>  math.isInfinite = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isInfinite);
+    }
+    <span class="hljs-keyword">return</span> !math.isFinite(obj);
+  };</pre></div>
+          
+        
+          <h4 id="iseven">isEven</h4>
+<p>Determines whether a number is even.</p>
+
+          
+            <div class='highlight'><pre>  math.isEven = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isEven);
+    }
+    <span class="hljs-keyword">return</span> obj % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>;
+  };</pre></div>
+          
+        
+          <h4 id="isodd">isOdd</h4>
+<p>Determines whether a number is odd.</p>
+
+          
+            <div class='highlight'><pre>  math.isOdd = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isOdd);
+    }
+    <span class="hljs-keyword">return</span> obj % <span class="hljs-number">2</span> === <span class="hljs-number">1</span>;
+  };</pre></div>
+          
+        
+          <h4 id="isprime">isPrime</h4>
+<p>Determines whether a number is prime.</p>
+<p><em>Note</em> that for a numeric input, n, this is O(sqrt(n)). For arrays of size
+m, it’s O(m*sqrt(n)). It isn’t the most efficient possible implementation,
+but it’s reasonably simple.</p>
+
+          
+            <div class='highlight'><pre>  math.isPrime = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isPrime);
+    }
+    <span class="hljs-keyword">if</span>(!obj){
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(obj !== <span class="hljs-number">2</span>){
+      <span class="hljs-keyword">var</span> safeN = math.abs(math.round(obj));
+      <span class="hljs-keyword">var</span> goUntil = math.ceil(math.sqrt(safeN));
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">2</span>; i &lt;= goUntil; i++){
+        <span class="hljs-keyword">if</span>(safeN % i === <span class="hljs-number">0</span>){
+          <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+      }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  };</pre></div>
+          
+        
+          <h4 id="iscomposite">isComposite</h4>
+<p>Determines whether a number is composite.</p>
+
+          
+            <div class='highlight'><pre>  math.isComposite = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isComposite);
+    }
+    <span class="hljs-keyword">return</span> !math.isPrime(obj);
+  };</pre></div>
+          
+        
+          <h4 id="isperfect">isPerfect</h4>
+<p>Determines whether a number is perfect.</p>
+<p>Because there are so few which can be represented as integers, it’s vastly
+more efficient to just store them all than attempt to compute and sum
+factors or check for Eulerian forms.</p>
+
+          
+            <div class='highlight'><pre>  math.perfects = [<span class="hljs-number">6</span>, <span class="hljs-number">28</span>, <span class="hljs-number">496</span>, <span class="hljs-number">8128</span>, <span class="hljs-number">33550336</span>, <span class="hljs-number">8589869056</span>, <span class="hljs-number">137438691328</span>];
+  math.isPerfect = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.isPerfect);
+    }
+    <span class="hljs-keyword">return</span> obj <span class="hljs-keyword">in</span> math.perfects;
+  };</pre></div>
+          
+        
+          <h2 id="randomizers">Randomizers</h2>
+<p>Randomizers provide sources of pseudo-randomly values. These are largely
+based on Math.random, which is not cryptographically secure. Accordingly,
+these should not be used for applications which require secure random
+values.</p>
+
+          
+        
+          <h4 id="random">random</h4>
+<p>Returns a random value between 0 and 1.</p>
+<p>Given a number, <code>n</code>, returns an array of <code>n</code> random values between 0 and 1.</p>
+
+          
+            <div class='highlight'><pre>  math.random = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>)</span>{
+    <span class="hljs-keyword">if</span>(!n) <span class="hljs-keyword">return</span> math.orig.random();
+    <span class="hljs-keyword">var</span> out = <span class="hljs-built_in">Array</span>(n);
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; n; i++){
+      out[i] = math.random();
+    }
+    <span class="hljs-keyword">return</span> out;
+  };</pre></div>
+          
+        
+          <h4 id="randomboolean">randomBoolean</h4>
+<p>Returns a random boolean value.</p>
+<p>Given a number, <code>n</code>, returns an array of <code>n</code> random booleans.</p>
+
+          
+            <div class='highlight'><pre>  math.randomBoolean = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>)</span>{
+    <span class="hljs-keyword">if</span>(!n) <span class="hljs-keyword">return</span> math.orig.random() &gt; <span class="hljs-number">0.5</span> ? <span class="hljs-number">1</span> : -<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">var</span> out = <span class="hljs-built_in">Array</span>(n);
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; n; i++){
+      out[i] = math.randomBoolean();
+    }
+    <span class="hljs-keyword">return</span> out;
+  };</pre></div>
+          
+        
+          <h4 id="randomdirection">randomDirection</h4>
+<p>AKA <code>randomSign</code></p>
+<p>Returns a random direction (i.e. 1 or -1)</p>
+<p>Given a number, <code>n</code>, returns an array of <code>n</code> random directions.</p>
+
+          
+            <div class='highlight'><pre>  math.randomDirection = math.randomSign = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>)</span>{
+    <span class="hljs-keyword">if</span>(!n) <span class="hljs-keyword">return</span> math.orig.random() &gt; <span class="hljs-number">0.5</span> ? <span class="hljs-number">1</span> : -<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">var</span> out = <span class="hljs-built_in">Array</span>(n);
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; n; i++){
+      out[i] = math.randomDirection();
+    }
+    <span class="hljs-keyword">return</span> out;
+  };</pre></div>
+          
+        
+          <h4 id="randomelement">randomElement</h4>
+<p>AKA <code>randomItem</code></p>
+<p>Given an array, return one element selected at random.</p>
+
+          
+            <div class='highlight'><pre>  math.randomElement = math.randomItem = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(key) <span class="hljs-keyword">return</span> math.randomElement(math.pluck(obj, key));
+    <span class="hljs-keyword">return</span> obj[math.floor(math.random() * obj.length)];
+  };</pre></div>
+          
+        
+          <h4 id="randomsample">randomSample</h4>
+<p>Given an array, <code>obj</code>, and a number, <code>m</code>, returns <code>m</code> randomly-selected
+elements of <code>obj</code>.</p>
+
+          
+            <div class='highlight'><pre>  math.randomSample = math.randomsample = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, m</span>)</span>{
+    <span class="hljs-keyword">if</span>(!m || m &gt; obj.length) <span class="hljs-keyword">return</span> obj;
+    <span class="hljs-keyword">return</span> math.shuffle(obj).slice(<span class="hljs-number">0</span>, m);
+  };</pre></div>
+          
+        
+          <h4 id="shuffle">shuffle</h4>
+<p>Given an array, <code>obj</code>, returns an array which contains every element of
+<code>obj</code>, but in a random order.</p>
+
+          
+            <div class='highlight'><pre>  math.shuffle = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">var</span> arr = math.pluck(obj, key),
+        m = arr.length, t, i;
+    <span class="hljs-keyword">while</span> (m){
+      i = math.floor(math.random() * m--);
+      t = arr[m];
+      arr[m] = arr[i];
+      arr[i] = t;
+    }
+    <span class="hljs-keyword">return</span> arr;
+  };</pre></div>
+          
+        
+          <h2 id="mappers">Mappers</h2>
+<p>Mapper functions accept a single argument (which may be an array of numbers
+or objects), and return an object of roughly similar type and size.
+For example, passing a number to a mapper should result in a number.
+Passing an array of <code>n</code> numbers should (in most cases) return an array of
+<code>n</code> numbers.</p>
+<p>Note that these will also generally work with arrays of objects, provided
+you pass a ‘key’ argument indicating the key in the object which you wish
+to operate on.</p>
+
+          
+        
+          <h4 id="sign">sign</h4>
+<p>Returns one of -1, 0, or 1, indicating whether the given obj is negative,
+zero, or positive</p>
+
+          
+            <div class='highlight'><pre>  math.sign = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.sign);
+    }
+    <span class="hljs-keyword">return</span> math.orig.sign(obj);
+  };</pre></div>
+          
+        
+          <h4 id="floor">floor</h4>
+<p>Returns the greatest integer less than a given value.</p>
+
+          
+            <div class='highlight'><pre>  math.floor = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.floor);
+    }
+    <span class="hljs-keyword">return</span> math.orig.floor(obj);
+  };</pre></div>
+          
+        
+          <h4 id="ceil">ceil</h4>
+<p>Returns the least integer greater than a given value.</p>
+
+          
+            <div class='highlight'><pre>  math.ceil = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.ceil);
+    }
+    <span class="hljs-keyword">return</span> math.orig.ceil(obj);
+  };</pre></div>
+          
+        
+          <h4 id="round">round</h4>
+<p>Returns the nearest integer to a given value.</p>
+
+          
+            <div class='highlight'><pre>  math.round = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.round);
+    }
+    <span class="hljs-keyword">return</span> math.orig.round(obj);
+  };</pre></div>
+          
+        
+          <h4 id="clamp">clamp</h4>
+<p>Returns the nearest value to a number within the range [lower, upper].</p>
+
+          
+            <div class='highlight'><pre>  math.clamp = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, lower, upper</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> obj.map(i =&gt; math.clamp(i, lower, upper));
+    }
+    <span class="hljs-keyword">if</span>(obj &lt; lower){ <span class="hljs-keyword">return</span> lower; }
+    <span class="hljs-keyword">if</span>(obj &gt; upper){ <span class="hljs-keyword">return</span> upper; }
+    <span class="hljs-keyword">return</span> obj;
+  };</pre></div>
+          
+        
+          <h4 id="trunc">trunc</h4>
+<p>Returns an integer with all digits less than one truncated.</p>
+
+          
+            <div class='highlight'><pre>  math.trunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.trunc);
+    }
+    <span class="hljs-keyword">return</span> math.orig.trunc(obj);
+  };</pre></div>
+          
+        
+          <h4 id="abs">abs</h4>
+<p>Returns the absolute value of a number.</p>
+
+          
+            <div class='highlight'><pre>  math.abs = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.abs);
+    }
+    <span class="hljs-keyword">return</span> math.orig.abs(obj);
+  };</pre></div>
+          
+        
+          <h4 id="add">add</h4>
+<p>Adds a value to each element of an array.</p>
+
+          
+            <div class='highlight'><pre>  math.add = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, summand</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> obj.map(i =&gt; math.add(i, summand));
+    }
+    <span class="hljs-keyword">return</span> obj + summand;
+  };</pre></div>
+          
+        
+          <h4 id="subtract">subtract</h4>
+<p>Subtracts a value from each element of an array.</p>
+
+          
+            <div class='highlight'><pre>  math.subtract = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, subtrahend</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> obj.map(minuend =&gt; math.subtract(minuend, subtrahend));
+    }
+    <span class="hljs-keyword">return</span> obj - subtrahend;
+  };</pre></div>
+          
+        
+          <h4 id="multiply">multiply</h4>
+<p>AKA <code>scale</code></p>
+<p>Multiplies by a scalar.</p>
+
+          
+            <div class='highlight'><pre>  math.multiply = math.scale = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, scalar</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> obj.map(i =&gt; math.scale(i, scalar));
+    }
+    <span class="hljs-keyword">return</span> obj * scalar;
+  };</pre></div>
+          
+        
+          <h4 id="scale01">scale01</h4>
+<p>Transforms an array to fit within the range [0, 1], such that the
+ratios between any two pairs of elements are maintained.</p>
+<p><code>math.scale01([0, 2, 5, 10])</code> &rArr; [0, 0.2, 0.5, 1]</p>
+
+          
+            <div class='highlight'><pre>  math.scale01 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">var</span> arr = math.pluck(obj, key);
+    <span class="hljs-keyword">return</span> math.scalemm(arr, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>);
+  };</pre></div>
+          
+        
+          <h4 id="scale11">scale11</h4>
+<p>Transforms an array to fit within the range [-1, 1], such that the
+ratios between any two pairs of elements are maintained.</p>
+<p><code>math.scale11([0, 2, 5, 10])</code> &rArr; [-1, -0.6, 0, 1]</p>
+
+          
+            <div class='highlight'><pre>  math.scale11 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">var</span> arr = math.pluck(obj, key);
+    <span class="hljs-keyword">return</span> math.scalemm(arr, -<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+  };</pre></div>
+          
+        
+          <h4 id="scale0100">scale0100</h4>
+<p>Transforms an array to fit within the range [0, 100], such that the
+ratios between any two pairs of elements are maintained.</p>
+<p><code>math.scale11([0, 2, 5, 10])</code> &rArr; [-1, -0.6, 0, 1]</p>
+
+          
+            <div class='highlight'><pre>  math.scale0100 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">var</span> arr = math.pluck(obj, key);
+    <span class="hljs-keyword">return</span> math.scalemm(arr, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>);
+  };</pre></div>
+          
+        
+          <h4 id="scalemm">scalemm</h4>
+<p>Transforms an array to fit within the range [min, max], such that the
+ratios between any two elements are maintained.</p>
+<p><code>math.scalemm([0, 2, 5, 10])</code> &rArr; [-1, -0.6, 0, 1]</p>
+
+          
+            <div class='highlight'><pre>  math.scalemm = math.scaleMM = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, min, max</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isUndefined(min)) min = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span>(math.isUndefined(max)) max = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">var</span> minArr = math.min(obj),
+        oldRange = math.max(obj) - minArr,
+        newRange = max - min;
+    <span class="hljs-keyword">return</span> obj.map(i =&gt; (i - minArr) / oldRange * newRange + min);
+  };</pre></div>
+          
+        
+          <h4 id="divide">divide</h4>
+<p>Divides each element in <code>obj</code> by <code>divisor</code>.</p>
+
+          
+            <div class='highlight'><pre>  math.divide = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, divisor</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> obj.map(dividend =&gt; math.divide(dividend, divisor));
+    }
+    <span class="hljs-keyword">return</span> obj / divisor;
+  };</pre></div>
+          
+        
+          <h4 id="modulo">modulo</h4>
+<p>Divides each element in <code>obj</code> by <code>divisor</code>, and returns the remainder.</p>
+
+          
+            <div class='highlight'><pre>  math.modulo = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, divisor</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> obj.map(dividend =&gt; math.modulo(dividend, divisor));
+    }
+    <span class="hljs-keyword">return</span> obj % divisor;
+  };</pre></div>
+          
+        
+          <h4 id="pow">pow</h4>
+<p>Given a number and an exponent, returns the number raised to the exponent.</p>
+<p>Given an array of numbers, along with an exponent, returns an array for
+which each entry is the corresponding value of the original array raised
+to that exponent.</p>
+<p>Given an array of objects, should fail. If you need to raise an array of
+objects to an exponent, please use <code>math.square</code>, <code>math.cube</code>, <code>math.sqrt</code>,
+and <code>math.cbrt</code> for n = 2, 3, 1/2, and 1/3 respectively. For arbitrary
+values of n, please call <code>math.pluck</code> your array first, and pass the
+plucked array to <code>math.pow</code>.</p>
+<p><code>math.pow(2,3)</code> &rArr; 8</p>
+<p><code>math.pow([1, 2, 10], 3)</code> &rArr; [1, 8, 1000]</p>
+
+          
+            <div class='highlight'><pre>  math.pow = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, exponent</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> obj.map(i =&gt; math.pow(i, exponent));
+    }
+    <span class="hljs-keyword">return</span> math.orig.pow(obj, exponent);
+  };</pre></div>
+          
+        
+          <p>Note that the following functions will accept arrays of objects, where
+math.pow will not.</p>
+
+          
+        
+          <h4 id="square">square</h4>
+<p>Multiplies a number by itself.</p>
+
+          
+            <div class='highlight'><pre>  math.square = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">return</span> math.pow(math.pluck(obj, key), <span class="hljs-number">2</span>);
+  };</pre></div>
+          
+        
+          <h4 id="cube">cube</h4>
+<p>Multiplies a number by its square.</p>
+
+          
+            <div class='highlight'><pre>  math.cube = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">return</span> math.pow(math.pluck(obj, key), <span class="hljs-number">3</span>);
+  };</pre></div>
+          
+        
+          <h4 id="sqrt">sqrt</h4>
+<p>Given a number, computes the Square Root</p>
+
+          
+            <div class='highlight'><pre>  math.sqrt = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">return</span> math.pow(math.pluck(obj, key), <span class="hljs-number">1</span>/<span class="hljs-number">2</span>);
+  };</pre></div>
+          
+        
+          <h4 id="cbrt">cbrt</h4>
+<p>Given a number, computes the Cube Root</p>
+
+          
+            <div class='highlight'><pre>  math.cbrt = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">return</span> math.pow(math.pluck(obj, key), <span class="hljs-number">1</span>/<span class="hljs-number">3</span>);
+  };</pre></div>
+          
+        
+          <h4 id="exp">exp</h4>
+<p>Given a number x, computes e^x where e is Euler’s natural base.</p>
+
+          
+            <div class='highlight'><pre>  math.exp = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.exp);
+    }
+    <span class="hljs-keyword">return</span> math.pow(math.orig.E, obj);
+  };</pre></div>
+          
+        
+          <h4 id="expm1">expm1</h4>
+<p>Given a number x, computes e^x-1 where e is Euler’s natural base.</p>
+
+          
+            <div class='highlight'><pre>  math.expm1 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.expm1);
+    }
+    <span class="hljs-keyword">return</span> math.pow(math.orig.E, obj) - <span class="hljs-number">1</span>;
+  };</pre></div>
+          
+        
+          <h4 id="log">log</h4>
+<p>Computes the natural logarithm of a number.</p>
+
+          
+            <div class='highlight'><pre>  math.log = math.ln = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.log);
+    }
+    <span class="hljs-keyword">return</span> math.orig.log(obj);
+  };</pre></div>
+          
+        
+          <h4 id="log1p">log1p</h4>
+<p>Given a number x, computes the natural logarithm of x + 1</p>
+
+          
+            <div class='highlight'><pre>  math.log1p = math.ln1p = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.log1p);
+    }
+    <span class="hljs-keyword">return</span> math.log(<span class="hljs-number">1</span> + obj);
+  };</pre></div>
+          
+        
+          <h4 id="log10">log10</h4>
+<p>Computes the logarithm base 10 of a number.</p>
+
+          
+            <div class='highlight'><pre>  math.log10 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.log10);
+    }
+    <span class="hljs-keyword">return</span> math.orig.log10(obj);
+  };</pre></div>
+          
+        
+          <h4 id="log2">log2</h4>
+<p>Computes the logarithm base 2 of a number.</p>
+
+          
+            <div class='highlight'><pre>  math.log2 = math.lg = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.log2);
+    }
+    <span class="hljs-keyword">return</span> math.orig.log2(obj);
+  };</pre></div>
+          
+        
+          <h4 id="logb">logb</h4>
+<p>Computes the logarithm base b of an object (or each element within it)</p>
+
+          
+            <div class='highlight'><pre>  math.logb = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, base</span>)</span>{
+    <span class="hljs-keyword">var</span> b = math.log(base);
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){</pre></div>
+          
+        
+          <p>I know, this breaks the design pattern, but it saves <code>n</code> operations.</p>
+
+          
+            <div class='highlight'><pre>      <span class="hljs-keyword">return</span> obj.map(x =&gt; math.log(x)/b);
+    }
+    <span class="hljs-keyword">return</span> math.log(obj)/b;
+  };</pre></div>
+          
+        
+          <h4 id="factorial">factorial</h4>
+<p>Given a number, computes the factorial.</p>
+
+          
+            <div class='highlight'><pre>  math.factorial = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.factorial);
+    }
+    <span class="hljs-keyword">if</span>(obj &lt; <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">Infinity</span>;
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(obj === <span class="hljs-number">0</span>){
+      <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> math.product(math.range(obj));
+    }
+  };</pre></div>
+          
+        
+          <h4 id="copysign">copySign</h4>
+<p>Given a number, copies the sign of b onto obj</p>
+<p>Given an Array, copies the sign of b onto each value of obj</p>
+
+          
+            <div class='highlight'><pre>  math.copySign = math.copysign = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, b</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> obj.map(i =&gt; math.copySign(i, b));
+    }
+    <span class="hljs-keyword">return</span> math.isSameSign(obj, b) ? obj : -obj;
+  };</pre></div>
+          
+        
+          <h4 id="undirectededges">undirectedEdges</h4>
+<p>Computes the maximum number of distinct edges of an undirected graph of <code>n</code>
+nodes.</p>
+
+          
+            <div class='highlight'><pre>  math.undirectedEdges = math.undirectededges = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.undirectedEdges);
+    }
+    <span class="hljs-keyword">return</span> obj * (obj - <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;
+  };</pre></div>
+          
+        
+          <h4 id="factors">factors</h4>
+<p>Returns an array of the factors of a number, n</p>
+
+          
+            <div class='highlight'><pre>  math.factors = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.factors);
+    }
+    <span class="hljs-keyword">var</span> result = [],
+        startN = math.abs(math.round(obj)),
+        finished = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">while</span>(!finished){
+      finished = <span class="hljs-literal">true</span>;
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">2</span>; i &lt;= startN / <span class="hljs-number">2</span>; i++){
+        <span class="hljs-keyword">if</span>(obj % i === <span class="hljs-number">0</span>){
+          obj /= i;
+          result.push(i);
+          finished = <span class="hljs-literal">false</span>;
+          <span class="hljs-keyword">break</span>;
+        }
+      }
+    }
+    <span class="hljs-keyword">if</span>(result.length === <span class="hljs-number">0</span>){
+      result.push(startN);
+    }
+    <span class="hljs-keyword">return</span> result;
+  };</pre></div>
+          
+        
+          <h4 id="divisors">divisors</h4>
+<p>Returns an array of the divisors of a number n</p>
+
+          
+            <div class='highlight'><pre>  math.divisors = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.pluck(obj, key).map(math.divisors);
+    }
+    <span class="hljs-keyword">var</span> safeN = math.abs(math.round(obj)),
+        result = [<span class="hljs-number">1</span>];
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">2</span>; i &lt;= safeN / <span class="hljs-number">2</span>; i++){
+      <span class="hljs-keyword">if</span>(safeN % i === <span class="hljs-number">0</span>){
+        result.push(i);
+      }
+    }
+    <span class="hljs-keyword">return</span> result;
+  };</pre></div>
+          
+        
+          <h4 id="between">between</h4>
+<p>Returns a boolean indicating whether a number x is between two others
+numbers, a and b.</p>
+
+          
+            <div class='highlight'><pre>  math.between = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obj, a, b</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> obj.map(i =&gt; math.between(i, a, b));
+    }
+    <span class="hljs-keyword">return</span> (a&lt;=obj &amp;&amp; obj&lt;=b) || (b&lt;=obj &amp;&amp; obj&lt;=a);
+  };</pre></div>
+          
+        
+          <h4 id="format">format</h4>
+<p>Truncates a number n at the given precision</p>
+<p><code>var t = math.pluck([{a:1.234}, {a:2.345}], &#39;a&#39;); math.format(t, 2);</code> &rArr;</p>
+
+          
+            <div class='highlight'><pre>  math.format = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, precision</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> obj.map(i =&gt; math.format(i, precision));
+    }
+    <span class="hljs-keyword">return</span> (obj.toFixed(precision))/<span class="hljs-number">1</span>;
+  };</pre></div>
+          
+        
+          <h4 id="sort">sort</h4>
+<p>Given an array of numbers, returns the array sorted.</p>
+<p><em>Warning:</em> This implements an in-place algorithm.</p>
+<p><code>math.sort([3,1,2])</code> &rArr; [1,2,3]</p>
+
+          
+            <div class='highlight'><pre>  math.sort = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, descending</span>)</span>{
+    <span class="hljs-keyword">if</span>(descending){
+      <span class="hljs-keyword">return</span> obj.sort((a, b) =&gt; b - a);
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> obj.sort((a, b) =&gt; a - b);
+    }
+  };</pre></div>
+          
+        
+          <h4 id="zscore">zScore</h4>
+<p>Computes the standard Z-score, <em>assuming a normal distribution.</em></p>
+<p><code>math.zScore([1,2,3])</code> &rArr; [-1.224744871391589, 0, 1.224744871391589]</p>
+
+          
+            <div class='highlight'><pre>  math.zScore = math.zscore = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">var</span> arr = math.pluck(obj, key),
+        mean = math.mean(arr),
+        sigma = math.stdDeviation(arr);
+    <span class="hljs-keyword">return</span> arr.map(d =&gt; (d-mean)/sigma);
+  };</pre></div>
+          
+        
+          <h2 id="trigonometry">Trigonometry</h2>
+<p>Performs trigonometric computations.</p>
+
+          
+            <div class='highlight'><pre>  [<span class="hljs-string">'sin'</span>, <span class="hljs-string">'sinh'</span>, <span class="hljs-string">'cos'</span>, <span class="hljs-string">'cosh'</span>, <span class="hljs-string">'tan'</span>, <span class="hljs-string">'tanh'</span>, <span class="hljs-string">'acos'</span>, <span class="hljs-string">'acosh'</span>, <span class="hljs-string">'asin'</span>, <span class="hljs-string">'asinh'</span>, <span class="hljs-string">'atan'</span>, <span class="hljs-string">'atanh'</span>].forEach(fun =&gt; {
+    math[fun] = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+      <span class="hljs-keyword">if</span>(math.isArray(obj)){
+        <span class="hljs-keyword">return</span> math.pluck(obj, key).map(i =&gt; math[fun](i));
+      }
+      <span class="hljs-keyword">return</span> math.orig[fun](obj);
+    };
+  });</pre></div>
+          
+        
+          <h4 id="atan2">atan2</h4>
+<p>Returns the arctangent of the quotient of each element of <code>obj</code> and
+<code>divisor</code></p>
+
+          
+            <div class='highlight'><pre>  math.atan2 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, divisor</span>)</span>{
+    <span class="hljs-keyword">return</span> math.atan(math.divide(obj, divisor));
+  };</pre></div>
+          
+        
+          <h2 id="reducers">Reducers</h2>
+<p>Reducers are functions which accept an array and return (usually) a singe
+number. (Some, like <code>math.movingAvg</code> will return a smaller array).
+Perhaps the most recognizable reducer is the Arithmetic mean (more
+commonly just called the “average”), though there are many other well-
+known, simple reducers (as you can see from the list of functions between
+this paragraph and <code>math.mean</code>).</p>
+
+          
+        
+          <h4 id="min">min</h4>
+<p>Computes the maximum of an array of numbers</p>
+<p><code>math.maxArr([1,2,3]);</code> &rArr; 3</p>
+
+          
+            <div class='highlight'><pre>  math.min = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key, ...others</span>)</span>{
+    <span class="hljs-keyword">if</span>(!math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.orig.min(obj, key, ...others);
+    }
+    <span class="hljs-keyword">return</span> math.orig.min(...math.pluck(obj, key));
+  };</pre></div>
+          
+        
+          <h4 id="max">max</h4>
+<p>Computes the maximum of an array of numbers</p>
+<p><code>math.maxArr([1,2,3]);</code> &rArr; 3</p>
+
+          
+            <div class='highlight'><pre>  math.max = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key, ...others</span>)</span>{
+    <span class="hljs-keyword">if</span>(!math.isArray(obj)){
+      <span class="hljs-keyword">return</span> math.orig.max(obj, key, ...others);
+    }
+    <span class="hljs-keyword">return</span> math.orig.max(...math.pluck(obj, key));
+  };</pre></div>
+          
+        
+          <h4 id="sum">sum</h4>
+<p>Computes the sum of an array of numbers (or an array of objects with a
+given <code>key</code>).</p>
+<p><code>math.sum([1,2,3]);</code> &rArr; 6</p>
+<p><code>math.sum([{b: 4},{b: 5},{b: 6}], &#39;b&#39;)</code> &rArr; 15</p>
+
+          
+            <div class='highlight'><pre>  math.sum = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">return</span> math.pluck(obj, key).reduce((a, b) =&gt; a + b, <span class="hljs-number">0</span>);
+  };</pre></div>
+          
+        
+          <h4 id="product">product</h4>
+<p>Computes the product of an array of numbers (or an array of objects with a
+a given <code>key</code>).</p>
+<p><code>math.product([1,2,3])</code> &rArr; 6</p>
+<p><code>math.product([{b: 4},{b: 5},{b: 6}], &#39;b&#39;)</code> &rArr; 120</p>
+
+          
+            <div class='highlight'><pre>  math.product = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">return</span> math.pluck(obj, key).reduce((a, b) =&gt; a * b, <span class="hljs-number">1</span>);
+  };</pre></div>
+          
+        
+          <h4 id="gcd">gcd</h4>
+<p>Determines the greatest common divisor between two numbers.</p>
+
+          
+            <div class='highlight'><pre>  math.gcd = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, b</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> obj.map(i =&gt; math.gcd(i, b));
+    }
+    <span class="hljs-keyword">var</span> ref;
+    <span class="hljs-keyword">while</span>(b){
+      ref = [b, obj % b];
+      obj = ref[<span class="hljs-number">0</span>];
+      b = ref[<span class="hljs-number">1</span>];
+    }
+    <span class="hljs-keyword">return</span> obj;
+  };</pre></div>
+          
+        
+          <h4 id="lcm">lcm</h4>
+<p>Determines the least common multiple of two numbers.</p>
+
+          
+            <div class='highlight'><pre>  math.lcm = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, b</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">return</span> obj.map(i =&gt; math.lcm(i, b));
+    }
+    <span class="hljs-keyword">return</span> obj / math.gcd(obj, b) * b;
+  };</pre></div>
+          
+        
+          <h4 id="mean">mean</h4>
+<p>Given an array of numbers, returns
+the <a href="https://en.wikipedia.org/wiki/Arithmetic_mean">arithmetic mean</a>.</p>
+<p><code>math.mean([1,2,3])</code> &rArr; 2</p>
+
+          
+            <div class='highlight'><pre>  math.mean = math.average = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">var</span> arr = math.pluck(obj, key);
+    <span class="hljs-keyword">return</span> math.sum(arr) / arr.length;
+  };</pre></div>
+          
+        
+          <h4 id="median">median</h4>
+<p>Given an array of numbers, returns
+the <a href="https://en.wikipedia.org/wiki/Median">median</a>.</p>
+<p><code>math.median([1,2,3,4])</code> &rArr; 2.5</p>
+
+          
+            <div class='highlight'><pre>  math.median = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">var</span> arr = math.pluck(obj, key),
+        middle = (arr.length + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>,
+        sorted = math.sort(arr);
+    <span class="hljs-keyword">return</span> (sorted.length % <span class="hljs-number">2</span>) ? sorted[middle - <span class="hljs-number">1</span>] : (sorted[middle - <span class="hljs-number">1.5</span>] + sorted[middle - <span class="hljs-number">0.5</span>]) / <span class="hljs-number">2</span>;
+  };</pre></div>
+          
+        
+          <h4 id="modes">modes</h4>
+<p>Returns an array of the most frequently recurring value in the input array.</p>
+
+          
+            <div class='highlight'><pre>  math.mode = math.modes = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">var</span> arr = math.pluck(obj, key),
+        modeMap = {},
+        maxCount = <span class="hljs-number">0</span>,
+        modes = [];
+
+    arr.forEach(val =&gt; {
+      <span class="hljs-keyword">if</span>(!modeMap[val]){
+        modeMap[val] = <span class="hljs-number">1</span>;
+      } <span class="hljs-keyword">else</span> {
+        modeMap[val]++;
+      }
+      <span class="hljs-keyword">if</span>(modeMap[val] &gt; maxCount){
+        modes = [val];
+        maxCount = modeMap[val];
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(modeMap[val] === maxCount){
+        modes.push(val);
+      }
+    });
+    <span class="hljs-keyword">return</span> modes;
+  };</pre></div>
+          
+        
+          <h4 id="geometricmean">geometricMean</h4>
+<p>Given an array of numbers, returns
+the <a href="https://en.wikipedia.org/wiki/Geometric_mean">geometric mean</a>.</p>
+<p><code>math.geometricMean([3,9,27])</code> &rArr; 9</p>
+
+          
+            <div class='highlight'><pre>  math.geometricMean = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">var</span> arr = math.pluck(obj, key);
+    <span class="hljs-keyword">return</span> math.pow(math.product(arr), <span class="hljs-number">1</span> / arr.length);
+  };</pre></div>
+          
+        
+          <h4 id="midrange">midrange</h4>
+<p>Given an array of numbers, returns the <a href="">midrange</a> (the mean of the max
+and min of a set of numbers).</p>
+<p><code>math.midrange([3,9,27])</code> &rArr; 18</p>
+
+          
+            <div class='highlight'><pre>  math.midrange = math.midRange = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">var</span> arr = math.pluck(obj, key),
+        min = math.min(arr);
+    <span class="hljs-keyword">return</span> ((math.max(arr) - min) / <span class="hljs-number">2</span>) + min;
+  };</pre></div>
+          
+        
+          <h4 id="variance">Variance</h4>
+<p>Computes the variance of an array of numbers.</p>
+<p><code>math.variance([1,2,3])</code> &rArr; 2/3</p>
+
+          
+            <div class='highlight'><pre>  math.variance = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">var</span> arr = math.pluck(obj, key),
+        mean = math.mean(arr);
+    <span class="hljs-keyword">return</span> math.mean(arr.map(x =&gt; math.pow(x - mean, <span class="hljs-number">2</span>)));
+  };</pre></div>
+          
+        
+          <h4 id="stddeviation">stdDeviation</h4>
+<p>Computes the Standard Deviation of an array of numbers.</p>
+<p><code>math.stdDeviation([1,2,3])</code> &rArr; 0.8165…</p>
+
+          
+            <div class='highlight'><pre>  math.stdDeviation = math.sigma = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">return</span> math.sqrt(math.variance(math.pluck(obj, key)));
+  };</pre></div>
+          
+        
+          <h4 id="meanabsolutedeviation">meanAbsoluteDeviation</h4>
+<p>Computes the mean absolute deviation of an array of numbers.</p>
+<p><code>math.meanAbsoluteDeviation([1,2,3])</code> &rArr; 1</p>
+
+          
+            <div class='highlight'><pre>  math.meanAbsoluteDeviation = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key</span>)</span>{
+    <span class="hljs-keyword">var</span> arr  = math.pluck(obj, key),
+        mean = math.mean(arr);
+    <span class="hljs-keyword">return</span> math.mean(arr.map(n =&gt; math.abs(n - mean)));
+  };</pre></div>
+          
+        
+          <h4 id="hypot">hypot</h4>
+<p>AKA <code>rss</code> for “Root sum of squares”</p>
+<p>Given any number of numbers (in an array or given as arbitrary arguments).
+returns the root sum of squares. For n numbers, this is equivalent to a
+hypotenuse in n-dimensional space.</p>
+
+          
+            <div class='highlight'><pre>  math.hypot = math.rss = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, key, ...others</span>)</span>{
+    <span class="hljs-keyword">if</span>(math.isArray(obj)){
+      <span class="hljs-keyword">var</span> arr = math.pluck(obj, key);
+      <span class="hljs-keyword">if</span>(math.isNumber(key)){
+        <span class="hljs-keyword">return</span> math.hypot(...arr, key, ...others);
+      }
+      <span class="hljs-keyword">return</span> math.hypot(...arr, ...others);
+    }
+    <span class="hljs-keyword">return</span> math.orig.hypot(obj, key, ...others);
+  };</pre></div>
+          
+        
+          <h4 id="wilson">wilson</h4>
+<p>Given an array of boolean values and a Z-score, returns the
+<a href="http://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Wilson_score_interval">Wilson Score Interval</a></p>
+<p>Z-score is defaulted to cover the 95% interval.</p>
+
+          
+            <div class='highlight'><pre>  math.wilson = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, z</span>)</span>{
+    <span class="hljs-keyword">var</span> up    = obj.reduce((x, i) =&gt; i ? x + <span class="hljs-number">1</span> : x, <span class="hljs-number">0</span>),
+        total = obj.length;
+    <span class="hljs-keyword">if</span>(total &lt;= <span class="hljs-number">0</span> || total &lt; up) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">var</span> avg = up/total,
+        z   = z || <span class="hljs-number">1.644853</span>,
+        z2  = math.square(z);
+    <span class="hljs-keyword">return</span> (avg + z2/(<span class="hljs-number">2</span>*total) - z*math.sqrt((avg*(<span class="hljs-number">1</span> - avg) + z2/(<span class="hljs-number">4</span>*total))/total))/(<span class="hljs-number">1</span> + z2/total);
+  };</pre></div>
+          
+        
+          <h4 id="movingaverage">movingAverage</h4>
+<p>Computes a moving average of an array of numbers.</p>
+<p>In case this is non-obvious, this should return an array of fewer elements
+than the original array contained.</p>
+<p><code>math.movingAvg([1,2,3,4,5], 3)</code> &rArr; [2,3,4]</p>
+
+          
+            <div class='highlight'><pre>  math.movingAverage = math.movingaverage = math.movingAvg = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, size</span>)</span>{
+    <span class="hljs-keyword">var</span> win, newarr = [];
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = size - <span class="hljs-number">1</span>; i &lt;= obj.length; i++){
+      win = obj.slice(i - size, i);
+      <span class="hljs-keyword">if</span>(win.length === size){
+        newarr.push(math.mean(win));
+      }
+    }
+    <span class="hljs-keyword">return</span> newarr;
+  };</pre></div>
+          
+        
+          <h3 id="fin">Fin</h3>
+
+          
+            <div class='highlight'><pre>
+  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> exports !== <span class="hljs-string">'undefined'</span>){
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">module</span> !== <span class="hljs-string">'undefined'</span> &amp;&amp; <span class="hljs-built_in">module</span>.exports){
+      exports = <span class="hljs-built_in">module</span>.exports = math;
+    }
+    exports.math = math;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">window</span>.math = math;
+  }
+
+}).call();</pre></div>
+          
+        
+      </div>
+    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    $(function(){
+      $('<button id="toggleAllCode" type="button" class="btn btn-default">Toggle Source</button>').click(e => {
+        $('pre').slideToggle()}
+      ).appendTo($('#toggleAllCodeWrapper'));
+      $('pre').hide().before(i => {
+        return $('<button type="button" class="btn btn-default btn-xs code-toggle">View Source</button>')
+          .click(e => $(e.target).next().slideToggle());
+      });
+      $('#sectionLinksNav').css('height', 'calc(100%-'+$('header').height()+')');
+      $(document.body).scrollspy({target: '#sectionLinksNav'});
+    });
+  </script>
+</body>
+</html>
